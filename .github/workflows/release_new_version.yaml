@@ -40,6 +40,7 @@ jobs:
         mkdir clashfm && pushd clashfm
           cp ../../scripts/* ./
           chmod +x *
+          cp ../../public/*.list ./
           tar zcvf ../clashfm.tar.gz *
         popd && rm -fr clashfm
         # 打包 ShellClash.tar.gz
@@ -47,7 +48,8 @@ jobs:
         mkdir ShellClash && pushd ShellClash
           cp ../../scripts/* ./
           chmod +x *
-          cp ../Country.mmdb ./
+          cp ../../public/*.list ./
+          cp ../geodata/Country.mmdb ./
           tar zcvf ../ShellClash.tar.gz *
         popd && rm -fr ./ShellClash
     - name: Commit and push
