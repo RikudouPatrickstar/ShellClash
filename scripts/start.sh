@@ -1285,7 +1285,9 @@ afstart(){
 		#加载定时任务
 		[ -f $clashdir/tools/cron ] && croncmd $clashdir/tools/cron	
 		#启用面板配置自动保存
-		cronset '#每10分钟保存节点配置' "*/10 * * * * test -n \"\$(pidof clash)\" && $clashdir/start.sh web_save #每10分钟保存节点配置"
+		if [ "$web_save_cron" != "已关闭" ];then
+			cronset '#每10分钟保存节点配置' "*/10 * * * * test -n \"\$(pidof clash)\" && $clashdir/start.sh web_save #每10分钟保存节点配置"
+		fi
 		[ -f $clashdir/configs/web_save ] && web_restore & #后台还原面板配置
 		#推送日志
 		{ sleep 5;logger Clash服务已启动！;} &
