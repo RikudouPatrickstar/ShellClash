@@ -79,10 +79,9 @@ jobs:
         unzip -o meta_xd.zip > /dev/null
         cd metacubexd-gh-pages
         echo 修改默认设置
-        sed -i 's/u("halloween")/u("emerald")/g' assets/*js
-        sed -i 's/u("lofi")/u("emerald")/g' assets/*js
-        sed -i 's/u("business")/u("night")/g' assets/*js
-        sed -i 's/u(!1),{name:"autoSwitchTheme"/u(!0),{name:"autoSwitchTheme"/g' assets/*js
+        sed -i 's/("nord")/("emerald")/g' assets/*js
+        sed -i 's/("sunset")/("dim")/g' assets/*js
+        sed -i 's/(!1),{name:"autoSwitchTheme"/(!0),{name:"autoSwitchTheme"/g' assets/*js
         sed -i 's/Auto),{name:"proxiesPreviewType"/DOTS),{name:"proxiesPreviewType"/g' assets/*js
         tar -zcvf meta_xd.tar.gz * > /dev/null
         mv -f meta_xd.tar.gz ../
