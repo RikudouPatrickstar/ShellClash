@@ -71,7 +71,7 @@ ckstatus(){
 	PID=$(pidof clash | awk '{print $NF}')
 	if [ -n "$PID" ];then
 		run="\033[32m正在运行（$redir_mod）\033[0m"
-		VmRSS=`cat /proc/$PID/status | grep -w VmRSS | awk 'unit="MB"{print $2/1024, unit}'`
+		VmRSS=`cat /proc/$PID/status | grep -w VmRSS | awk 'unit="MB"{print $2/1000, unit}'`
 		#获取运行时长
 		touch $TMPDIR/clash_start_time #用于延迟启动的校验
 		start_time=$(cat $TMPDIR/clash_start_time)
